@@ -7,13 +7,21 @@ input[type=text] {
   background-color: white;
   background-position: 10px 10px;
   background-repeat: no-repeat;
-  padding: 12px 20px 12px 40px;
+  padding: 6px 6px 6px 20px;
   -webkit-transition: width 0.4s ease-in-out;
   transition: width 0.4s ease-in-out;
+  margin-bottom: 5px;
 }
 
 input[type=text]:focus {
   width: 40%;
+}
+
+#heading{
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 5px;
+  margin-left: 15px;
 }
 
 th{
@@ -27,5 +35,19 @@ img {
 }
 
 #roboName {
-  margin-top: 25px;font-size: 16px;font-weight: bold;
+  margin-top: 25px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+#roboModel{
+  margin-top: 5px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+#roboPrice{
+  margin-top: 40px;
+  font-size: 16px;
+  font-weight: bold;
 }

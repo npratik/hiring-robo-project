@@ -2,18 +2,34 @@
   width:140px;
 }
 
-.roboImage {
-width:300px;
-  margin: 2px;
-}
-
-#name{
+#roboNameD{
   font-size: 16px;
   font-weight: bold;
   color: dodgerblue;
 }
 
-#modelNbr{
+#roboModelD{
   font-size: 16px;
   font-weight: bold;
 }
+
+#roboPriceD{
+  font-size: 16px;
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+
+#reviewHeader{
+  font-size: 16px;
+  font-weight: bold;
+  margin-left: 25px;
+  margin-top: 25px;
+}
+
+
+.roboImage {
+width:300px;
+  margin: 2px;
+}
+

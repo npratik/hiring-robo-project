@@ -2,7 +2,7 @@
 
 
   <div class='row'>
-    <div class='col-md-2'></div>
+    <div class='col-md-2'><p id="heading">Robo Assistant</p></div>
     <div class='col-md-6'>
       <input type='text'  [(ngModel)]='roboNameSearch' placeholder="Search Robo.." />
     </div>
@@ -11,58 +11,41 @@
 
   <div class='table-responsive col-md-9'>
     <table class='table table-striped ' *ngIf='RoboAssistants && RoboAssistants.length'>
-      <thead>
-      <tr>
-
-
-        <th>Robo Assistant</th>
-
-
-
-      </tr>
-      </thead>
       <tbody>
-      <tr *ngFor='let robo of RoboAssistants | roboNameSearchFilter:roboNameSearch'>
-        <div class='row'>
-          <div class="col-md-3">
-        <td>
-          <img
-            [src]='robo.avatar'
-            [title]='robo.name'>
-        </td>
+        <tr *ngFor='let robo of RoboAssistants | roboNameSearchFilter:roboNameSearch'>
+          <div class='row'>
+            <div class="col-md-3">
+              <td>
+                <img
+                  [src]='robo.avatar'
+                  [title]='robo.name'>
+              </td>
+            </div>
+
+            <div class="col-md-5">
+              <td>
+                <div class='row' id="roboName" >
+                  <a [routerLink]="['/detail', robo.robo_id]">
+                    {{robo.name}}
+                  </a>
+                </div>
+
+                <div class='row'  id ="roboModel">
+                  <span>{{ robo.model}}</span>
+                </div>
+              </td>
+            </div>
+
+            <div class="col-md-4">
+              <td>
+                <div id="roboPrice">
+                  <span>{{ robo.price | currency:'USD':true:'1.0-0' }}</span>
+                </div>
+              </td>
+            </div>
 
           </div>
-          <div class="col-md-5">
-        <td>
-          <div class='row' id="roboName" >
-            <a [routerLink]="['/detail', robo.robo_id]">
-              {{robo.name}}
-            </a>
-
-          </div>
-
-          <div class='row' style="margin-top: 5px;font-size: 14px;font-weight: bold;">
-            <span>{{ robo.model}}</span>
-          </div>
-        </td>
-          </div>
-
-          <div class="col-md-4">
-
-        <td>
-
-          <div class='row' style="margin-top: 40px;font-size: 16px;">
-            <span><b>{{ robo.price | currency:'USD':true:'1.0-0' }}</b></span>
-          </div>
-
-
-        </td>
-          </div>
-
-        </div>
-
-
-      </tr>
+        </tr>
       </tbody>
     </table>
   </div>

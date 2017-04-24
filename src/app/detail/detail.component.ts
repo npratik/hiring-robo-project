@@ -20,15 +20,21 @@ import 'rxjs/add/operator/switchMap';
 
 import { Subscription }       from 'rxjs/Subscription';
 
+
 @Component({
   //TODO: Add appropriate options
-  templateUrl: './detail.component.html'
+  templateUrl: './detail.component.html',
+  styleUrls: ['./detail.component.css']
 })
 
 export class DetailComponent implements OnInit , OnDestroy {
 
   roboAssistant: RoboAssistant;
   reviewContents: RoboReview;
+  private counter: number=0;
+  private totalRatings: number=0;
+  finalRating:number=0;
+
 
   private sub: Subscription;
   idcheck: string;
@@ -76,10 +82,23 @@ export class DetailComponent implements OnInit , OnDestroy {
   getRoboReviews(rid: string) {
     this.roboAssistantService.getRoboAssistantReview(rid).subscribe(response => {
         this.reviewContents = JSON.parse(response.json());
+        this.calculateAverageRating();
       },
       error => {
         console.log("error retrieving Robo Reviews from Robo Assistant service:", error);
       });
+  }
+
+  /* This method is used to calculate Average ratings for a Robo Assistant*/
+  calculateAverageRating(){
+    for (let content of this.reviewContents.content) {
+      this.counter++;
+      this.totalRatings = this.totalRatings + content.rating;
+    }
+
+    if (this.counter > 0) {
+      this.finalRating = (this.totalRatings) / (this.counter);
+    }
   }
 
   /* This method is used to route back to the Robo Assistant Search Page */

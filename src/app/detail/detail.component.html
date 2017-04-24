@@ -19,19 +19,24 @@
 
   <div class="col-md-5">
     <div class="row">
-      <div class='col-md-4' style="font-size: 16px; font-weight: bold;color: dodgerblue;">
-        <span>{{roboAssistant.name}}</span>
+      <div class='col-md-4'>
+        <p id="roboNameD">{{roboAssistant.name}}</p>
       </div>
-      <div class='col-md-4' style="font-size: 16px; font-weight: bold;">
-        <span>{{roboAssistant.model}}</span>
+      <div class='col-md-4'>
+        <p id="roboModelD">{{roboAssistant.model}}</p>
       </div>
+
+    </div>
+    <div>
+      <app-rating [rating]='finalRating'>
+      </app-rating>
     </div>
 
     <div class='row'><hr/></div>
 
     <div class='row'>
-      <div class='row' style="font-size: 16px;font-weight: bold;margin-left: 10px;">
-        <span><b>{{ roboAssistant.price | currency:'USD':true:'1.0-0' }}</b></span>
+      <div class='row' id="roboPriceD">
+        <span>{{ roboAssistant.price | currency:'USD':true:'1.0-0' }}</span>
       </div>
     </div>
 
@@ -41,7 +46,7 @@
 </div>
 
 <div class="row">
-  <p style="font-size: 16px;font-weight: bold;margin-left: 25px;margin-top: 15px;"> Reviews</p>
+  <p id="reviewHeader"> Reviews</p>
 </div>
 
 <div *ngIf='reviewContents'>
@@ -58,6 +63,7 @@
         </app-rating>
       </div>
     </div>
+    <p>{{content.rating}} out of 5</p>
 
     <p>{{ content.review}}</p>
 
