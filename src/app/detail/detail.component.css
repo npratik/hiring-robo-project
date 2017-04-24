@@ -1,0 +1,19 @@
+.btn {
+  width:140px;
+}
+
+.roboImage {
+width:300px;
+  margin: 2px;
+}
+
+#name{
+  font-size: 16px;
+  font-weight: bold;
+  color: dodgerblue;
+}
+
+#modelNbr{
+  font-size: 16px;
+  font-weight: bold;
+}
